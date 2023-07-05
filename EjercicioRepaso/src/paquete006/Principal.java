@@ -12,10 +12,13 @@ import paquete003.BilleteraPagos;
 import paquete004.PagoAguaPotable;
 import paquete004.PagoLuzElectrica;
 import paquete004.PagoPredial;
+import paquete004.PagoTelefonoConvencional;
 import paquete004.Pagos;
 import static paquete006.DatosAgua.*;
 import static paquete006.DatosLuz.datosGeneral;
 import static paquete006.DatosLuz.datosLoja;
+import static paquete006.DatosPropiedades.datos1;
+import static paquete006.DatosTelefono.datos2;
 
 /**
  *
@@ -95,30 +98,44 @@ public class Principal {
             lista.add(p1);
 
         }
-        
-         double[][] datosPropiedades = datosPropiedades();
-        
-         for (int i = 0; i < datosPropiedades.length; i++) {
-             
+
+        double[][] datosPropiedades = datos1();
+
+        for (int i = 0; i < datosPropiedades.length; i++) {
 
             double costoP = datosPropiedades[i][0];
-            
+
             Propiedad propiedad1 = new Propiedad(costoP);
-        
 
             double porcent = datosPropiedades[i][1];
 
-
-            Pagos p1 = new PagoPredial(costoP, porcent);
+            Pagos p1 = new PagoPredial(propiedad1, porcent);
             lista.add(p1);
 
         }
 
+        double[][] datosTelefono = datos2();
+
+        for (int i = 0; i < datosTelefono.length; i++) {
+
+            double tarifa = datosTelefono[i][0];
+
+            double consumo = datosTelefono[i][1];
+
+            double costo = datosTelefono[i][2];
+
+            Pagos p1 = new PagoTelefonoConvencional(tarifa, consumo, costo);
+            lista.add(p1);
+
+        }
+        for (Pagos lista1 : lista) {
+            lista1.calcularPago();
+        }
+
         BilleteraPagos pago = new BilleteraPagos(persona1, "11", lista);
+
+        pago.calcularGastoPagos();
         System.out.println(pago);
     }
 
-    private static double[][] datosPropiedades() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }

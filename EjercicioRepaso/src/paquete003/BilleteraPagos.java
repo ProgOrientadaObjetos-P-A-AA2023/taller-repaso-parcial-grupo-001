@@ -18,6 +18,7 @@ public class BilleteraPagos {
     public Persona persona;
     public double gastoPagos;
     public String mes;
+    
     public PagoAguaPotable aguaCasa;
     public PagoAguaPotable aguaComercio;
     public PagoLuzElectrica luzCasa;

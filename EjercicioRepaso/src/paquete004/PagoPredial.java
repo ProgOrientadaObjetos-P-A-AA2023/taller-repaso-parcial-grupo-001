@@ -11,7 +11,11 @@ import paquete002.Propiedad;
  *
  * @author reroes
  */
-public class PagoPredial {
+public class PagoPredial extends Pagos{
+    
+            private double porcentaje = 10;
+
+    
     public double calcularPago(){
         double valorPropiedad = 56000;
         double porcentaje = 10;

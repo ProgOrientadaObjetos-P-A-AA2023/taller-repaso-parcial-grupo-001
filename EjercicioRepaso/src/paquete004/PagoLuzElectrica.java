@@ -5,25 +5,32 @@
 package paquete004;
 
 import paquete001.Persona;
+import paquete002.Ciudad;
 
 /**
  *
  * @author reroes
  */
-public class PagoLuzElectrica {
+public class PagoLuzElectrica extends Pagos {
 
-    public double calcularPago() {
-        double pago = 0;
-        double tarifaBase = 10.20;
-        double kilovatiosConsumidos = 80;
-        double costoKilovatio = 0.5;
-        String ciudad = "Loja";
-        if (ciudad.equals("Loja")) {
+    private double tarifaBase;
+    private double kilovatiosConsumidos;
+    private double costoKilovatio;
+    private Ciudad ciudad;
+
+    @Override
+
+    public void calcularPago() {
+        tarifaBase = 10.20;
+        kilovatiosConsumidos = 80;
+        costoKilovatio = 0.5;
+
+        if (ciudad.obtenerNombreCiudad().equals("Loja")) {
             pago = tarifaBase + (kilovatiosConsumidos * costoKilovatio / 2);
         } else {
+
             pago = tarifaBase + (kilovatiosConsumidos * costoKilovatio);
         }
 
-        return pago;
     }
 }

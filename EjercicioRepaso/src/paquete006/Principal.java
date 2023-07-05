@@ -29,7 +29,7 @@ public class Principal {
             
             double metrosConsumo = datosComerciales[i][1];
             
-            double 
+            
             
             
         }
